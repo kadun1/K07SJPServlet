@@ -86,7 +86,7 @@ String self_intro =
 
 <%
 /*
-getParameterNames():폼값의 이름을 한꺼번에 받을때 사용하느
+getParameterNames():폼값의 이름을 한꺼번에 받을때 사용하는
 	메소드로 반환타입은 Enumeration 형이다.
 	hasMoreElements() : 객체에 남은 폼값이 있는지 검사한다.
 	nextElement() : 받은 폼값 중 다음 폼의 이름을 반환한다.
@@ -94,7 +94,7 @@ getParameterNames():폼값의 이름을 한꺼번에 받을때 사용하느
 Enumeration names = request.getParameterNames();
 while(names.hasMoreElements()){
 	
-	//폼의 name속성을 하나씩 읽어서 String형응로 반환한다.
+	//폼의 name속성을 하나씩 읽어서 String형으로 반환한다.
 	String paramName = (String)names.nextElement();
 	System.out.println("파라미터명:"+ paramName);
 	

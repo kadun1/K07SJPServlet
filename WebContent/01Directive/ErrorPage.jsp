@@ -4,7 +4,7 @@
 <%-- 
 	isErrorPage 지시어
 	: 현재 JSP페이지가 에러처리를 담당하는지 구분하는 속성으로
-	false가 디폴트갓이다. 에러처리를 위해서는 true로 설정해야 한다.
+	false가 디폴트값이다. 에러처리를 위해서는 true로 설정해야 한다.
 --%>
 <!DOCTYPE html>
 <html>

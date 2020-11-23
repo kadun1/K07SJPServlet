@@ -26,7 +26,7 @@
 		
 	<h3>Post방식 전송</h3>
 	<form action="RequestInfo.jsp" method="Post">
-		문자열입력: <input tpe="text" name="paramHan"/>
+		문자열입력: <input type="text" name="paramHan"/>
 		<input type="submit" value="Post방식" />
 	</form>
 	

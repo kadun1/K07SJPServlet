@@ -21,12 +21,13 @@
 <link rel="stylesheet" href="./css/div_layout.css"/>
 </head>
 <body>
-	<div class="AllWrap">
-		<div class="header">
-		<!-- GNB(Global Navigation Bar)영역 - 전체공통메뉴-->
-		<%@ include file="../common/Top.jsp" %>
-		</div>
-		<div class="body">
+<div class="AllWrap">
+	<div class="header">
+	<!-- GNB(Global Navigation Bar)영역 - 전체공통메뉴-->
+	<%@ include file="../common/Top.jsp" %>
+	</div>
+	<div class="body">
+		<div class="left_menu">
 			<!-- LNB영역(Local Navigation Bar> -->
 			<%@ include file="../common/Left.jsp" %>
 		</div>
@@ -48,5 +49,6 @@
 	<!-- copyright -->
 		<%@ include file="../common/Copyright.jsp" %>
 	</div>
+</div>
 </body>
 </html>
