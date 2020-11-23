@@ -1,3 +1,4 @@
+<%@page import="java.util.Enumeration"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -82,5 +83,33 @@ String self_intro =
 	<li>관심사항 : <%=favStr %></li>
 	<li>자기소개 : <%=self_intro %></li>
 </ul>
+
+<%
+/*
+getParameterNames():폼값의 이름을 한꺼번에 받을때 사용하느
+	메소드로 반환타입은 Enumeration 형이다.
+	hasMoreElements() : 객체에 남은 폼값이 있는지 검사한다.
+	nextElement() : 받은 폼값 중 다음 폼의 이름을 반환한다.
+*/
+Enumeration names = request.getParameterNames();
+while(names.hasMoreElements()){
+	
+	//폼의 name속성을 하나씩 읽어서 String형응로 반환한다.
+	String paramName = (String)names.nextElement();
+	System.out.println("파라미터명:"+ paramName);
+	
+	if(paramName.equals("sex")||paramName.equals("favorite")){
+		//checkbox와 radio는 getParameterValues()를 통해 읽어온다.
+		System.out.println("getParameterValues()로읽기");
+		out.println("파라미터명을 getParameterValues()로"+"얻어서 값 출력함<br/>");
+	}
+	else{
+		//나머지 text와 textarea는 getParameter()로 읽어온다.
+		System.out.println("getParameter()로 읽기");
+		out.println("파라미터명을 메소드로 얻어서"+"값 출력 : ");
+		out.println(request.getParameter(paramName)+"<br/>");
+	}
+}
+%>
 </body>
 </html>
