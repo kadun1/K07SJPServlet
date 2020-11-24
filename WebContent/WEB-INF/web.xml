@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>K07JSPServlet</display-name>
-  
+  <!-- 배포서술자 (Deployment descriptor) : 해당 웹 어플리케이션을
+  			개발하거나 배포할때 여러가지 설정값을 저장하는 용도로 사용되는
+  		 	xml파일
+  -->
   <!-- 
   	컨텍스트 초기화 파라미터
   		: 해당 웹어플리케이션 전체에서 접근가능한 영역으로
@@ -15,6 +18,16 @@
   <context-param>
   	<param-name>ConnectionURL</param-name>
   	<param-value>jdbc:oracle:thin:@localhost:1521:orcl</param-value>
+  </context-param>
+  
+  <!-- 차후 게시판에서 사용할 페이지 번호의 설정값 -->
+  <context-param> <!-- 한 페이지에 출력할 게시물의 갯수 -->
+  	<param-name>PAGE_SIZE</param-name>
+  	<param-value>10</param-value>
+  </context-param>
+  <context-param> <!-- 한 블럭당 출력할 페이지 번호의 갯수 -->
+  	<param-name>BLOCK_PAGE</param-name>
+  	<param-value>5</param-value>
   </context-param>
   
   
