@@ -1,20 +1,16 @@
 <%@page import="model.MemberDTO"%>
-<%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<title>PageResult.jsp</title>
 </head>
 <body>
-<h2>이전페이지에서 저장한 페이지영역의 속성 읽기</h2>
+	<h2>이전페이지에서 저장한 페이지영역의 속성 읽기</h2>
 	<%
 	Object obj = pageContext.getAttribute("pageDate");
 	String dateString = "";
@@ -35,6 +31,6 @@
 		<li>MemberDTO객체 : <%=m1Str %></li>
 	</ul>
 
-
 </body>
 </html>
+

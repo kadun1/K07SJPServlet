@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>K07JSPServlet</display-name>
-  <!-- 배포서술자 (Deployment descriptor) : 해당 웹 어플리케이션을
+  <!-- 배포서술자(Deployment descriptor) : 해당 웹 어플리케이션을
   			개발하거나 배포할때 여러가지 설정값을 저장하는 용도로 사용되는
-  		 	xml파일
+  			xml파일
   -->
   <!-- 
   	컨텍스트 초기화 파라미터
   		: 해당 웹어플리케이션 전체에서 접근가능한 영역으로
-  		주로 application 내장객체를 통해 접근하여 값을
-  		얻어오게된다. 일종의 상수와 같은 역할을 하게된다.
-   -->
+  		주로  application 내장객체를 통해 접근하여 값을
+  		얻어오게된다. 일종의 상수와 같은 역할을 하게된다.  
+  -->
   <context-param>
   	<param-name>JDBCDriver</param-name>
   	<param-value>oracle.jdbc.OracleDriver</param-value>
@@ -21,14 +21,15 @@
   </context-param>
   
   <!-- 차후 게시판에서 사용할 페이지 번호의 설정값 -->
-  <context-param> <!-- 한 페이지에 출력할 게시물의 갯수 -->
+  <context-param><!-- 한 페이지에 출력할 게시물의 갯수 -->
   	<param-name>PAGE_SIZE</param-name>
   	<param-value>10</param-value>
   </context-param>
-  <context-param> <!-- 한 블럭당 출력할 페이지 번호의 갯수 -->
+  <context-param><!-- 한 블럭당 출력할 페이지번호의 갯수 -->
   	<param-name>BLOCK_PAGE</param-name>
   	<param-value>5</param-value>
   </context-param>
+  
   
   
   <welcome-file-list>
