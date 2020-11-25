@@ -18,6 +18,7 @@ public class MemberDTO {
 
 	}
 	//인자생성자
+	
 	public MemberDTO(String id, String pass, String name, Date regidate) {
 
 		this.id = id;

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
 /*
 DAO(Data Access Object)
 	: 데이터베이스의 Data에 접근하기 위한 객체이다. 
@@ -84,6 +86,76 @@ public class MemberDAO {
 		}
 		return isFlag;
 	}
+	
+	//로그인방법2 : 회원인증후 MemberDTO객체에서 회원정보를 저장한 후 JSP쪽으로
+	//			반환해준다.
+	public MemberDTO getMemberDTO(String uid,String upass) {
+		
+		//회원정보 저장을 위해 DTO객체 생성
+		MemberDTO dto= new MemberDTO();
+		
+		//회원정보를 가져오기 위한 쿼리문 작성
+		String query = "SELECT id, pass, name FROM "
+				+ " member WHERE id=? AND pass=?";
+		
+		try {
+			//prepare 객체생성
+			psmt = con.prepareStatement(query);
+			//인파라미터 설정
+			psmt.setString(1, uid);
+			psmt.setString(2, upass);
+			//쿼리실행
+			rs = psmt.executeQuery();
+			//오라클이 반환해준 ResultSet을 통해 결과값이 있는지 확인
+			if(rs.next()) {
+				//결과가 있다면 DTO객체에 정보저장
+				dto.setId(rs.getString("id"));
+				dto.setPass(rs.getString("pass"));
+				dto.setName(rs.getString(3));
+			}
+			else {
+				System.out.println("결과셋이 없습니다.");
+			}
+		}
+		catch(Exception e) {
+			System.out.println("getMemberDTO오류");
+			e.printStackTrace();
+		}
+		return dto;
+	}
+	
+	//로그인방법3 : DTO객체 대신 Map컬렉션에 회원정보를 저장후 반환한다.
+	public Map<String, String> getMemberMap(String id, String pwd){
+		
+		//회원정보를 저장할 Map컬렉션 생성
+		Map<String, String>maps = new HashMap<String, String>();
+		
+		String query = "SELECT id, pass, name FROM "
+				+ " member WHERE id=? AND pass=?";
+		
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, id);
+			psmt.setString(2, pwd);
+			rs = psmt.executeQuery();
+			
+			//회원정보가 있다면 put()을 통해 정보를 저장한다.
+			if(rs.next()) {
+				maps.put("id", rs.getString(1));
+				maps.put("pass", rs.getString("pass"));
+				maps.put("name", rs.getString("name"));
+			}
+			else {
+				System.out.println("결과셋이 없습니다.");
+			}
+		}
+		catch(Exception e) {
+			System.out.println("getMemberDTO오류");
+			e.printStackTrace();
+		}
+		return maps;
+	}
+	
 	
 	public static void main(String[] args) {		
 		new MemberDAO();

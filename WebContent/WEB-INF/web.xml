@@ -32,6 +32,17 @@
   
   
   
+  <!-- 세션 유지시간 설정하기 : web.xml에서는 '분'단위로 설정된다. -->
+  <session-config>
+  	<session-timeout>60</session-timeout>
+  </session-config>
+  
+  
+  
+  
+  
+  
+  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
