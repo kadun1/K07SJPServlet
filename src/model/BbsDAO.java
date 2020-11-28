@@ -174,7 +174,7 @@ public class BbsDAO {
 	}
 	
 	/*
-	게시판 리스트에서 게시물의 갯수를 count() 그루함수를 통해 구해서
+	게시판 리스트에서 게시물의 갯수를 count() 그룹함수를 통해 구해서
 	반환한다. 게시물의 가상번호, 페이지처리를 위해 사용된다.
 	 */
 	public int getTotalRecordCount(Map<String, Object> map) {
