@@ -134,10 +134,13 @@ public class BbsDAO {
 		
 		return affected;
 	}
+	
+	//게시판 리스트 출력 - 페이지처리 포함
 	public List<BbsDTO> selectListPage(Map<String,Object>map){
 		
 		List<BbsDTO> bbs = new Vector<BbsDTO>();
 		
+		//쿼리문이 아래와같이 페이지처리 쿼리문으로 변경됨.
 		String query = " "
 			+" SELECT * FROM ( "
 			+" 	    SELECT Tb.*, ROWNUM rNum FROM ( "
@@ -157,6 +160,7 @@ public class BbsDAO {
 		try {
 			psmt = con.prepareStatement(query);
 			
+			//JSP에서 계산한 페이지 범위값을 이용해 인파라미터를 설정함
 			psmt.setString(1, map.get("start").toString());
 			psmt.setString(2, map.get("end").toString());
 			
@@ -171,6 +175,60 @@ public class BbsDAO {
 				dto.setPostdate(rs.getDate("postdate"));
 				dto.setId(rs.getString("id"));
 				dto.setVisitcount(rs.getString("visitcount"));
+				
+				bbs.add(dto);	
+			}
+		}
+		catch(Exception e) {
+			System.out.println("Select시 예외발생");
+			e.printStackTrace();
+		}
+		return bbs;
+	}
+	
+	//게시판 리스트+페이지처리+회원이름으로 검색기능 추가
+	public List<BbsDTO> selectListPageSearch(Map<String,Object>map){
+		
+		List<BbsDTO> bbs = new Vector<BbsDTO>();
+		
+		//쿼리문이 아래와같이 페이지처리 쿼리문으로 변경됨.
+		String query = " "
+			+" SELECT * FROM ( "
+			+" 	    SELECT Tb.*, ROWNUM rNum FROM ( "
+			+"		SELECT B.*, M.name FROM board B "
+			+"        INNER JOIN member M "
+		    +"            ON B.id=M.id ";
+		if(map.get("Word")!=null) {
+			query+="        WHERE "+map.get("Column")
+			+" LIKE '%"+map.get("Word")+"%' ";
+		}
+		query +=" 		ORDER BY num DESC "
+			+" 		) TB "
+			+" 	) "
+			+" WHERE rNum BETWEEN ? AND ?";
+		System.out.println("쿼리문:"+query);
+		
+		try {
+			psmt = con.prepareStatement(query);
+			
+			//JSP에서 계산한 페이지 범위값을 이용해 인파라미터를 설정함
+			psmt.setString(1, map.get("start").toString());
+			psmt.setString(2, map.get("end").toString());
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				BbsDTO dto = new BbsDTO();
+				
+				dto.setNum(rs.getString("num"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setPostdate(rs.getDate("postdate"));
+				dto.setId(rs.getString("id"));
+				dto.setVisitcount(rs.getString("visitcount"));
+
+				//member테이블과의 JOIN으로 이름이 추가됨
+				dto.setName(rs.getNString("name"));
 				
 				bbs.add(dto);	
 			}
@@ -271,6 +329,35 @@ public class BbsDAO {
 		
 		//기본쿼리문(전체레코드를 대상으로 함)
 		String query = "SELECT COUNT(*) FROM board";
+		
+		//JSP페이지에서 검색어를 입력한 경우 where절이 동적을 추가된다.
+		if(map.get("Word")!=null) {
+			query += " WHERE "+ map.get("Column") + " "
+					+ " LIKE '%" + map.get("Word") + "%'";
+		}
+		System.out.println("query="+query);
+		
+		try {
+			//쿼리 실행후 결과값 반환
+			psmt = con.prepareStatement(query);
+			rs = psmt.executeQuery();
+			rs.next();
+			totalCount = rs.getInt(1);
+		}
+		catch(Exception e) {}
+		
+		return totalCount;
+	}
+	
+	//member테이블과 join해서 게시물 갯수를 카운트
+	public int getTotalRecordCountSearch(Map<String, Object> map) {
+		//게시물의 갯수는 최초 0으로 초기화
+		int totalCount = 0;
+		
+		//기본쿼리문(전체레코드를 대상으로 함)
+		String query = "SELECT COUNT(*) FROM board B"
+				+ "			INNER JOIN member M"
+				+ "				ON B.id=M.id ";
 		
 		//JSP페이지에서 검색어를 입력한 경우 where절이 동적을 추가된다.
 		if(map.get("Word")!=null) {

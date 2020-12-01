@@ -6,20 +6,38 @@
 	회원제 게시판이라 할지라도 상세보기는 로그인 없이 확인할수
 	있어야 한다. 특수한 경우에만 상세보기에 제한을 걸게된다.
 	비밀게시판, 1:1문의 등..
- -->
- <%
- //파라미터로 전송된 게시물의 일련번호를 받음
- String num = request.getParameter("num");
- BbsDAO dao = new BbsDAO(application);
- 
- //조회수를 업데이트하여 visitcount컬럽을 1증가시킴
- dao.updateVisitCount(num);
- 
- //일련번호에 해당하는 게시물을 DTO객체로 반환함
- BbsDTO dto = dao.selectView(num);
- 
- dao.close();
- %>
+-->
+<%
+/*
+검색후 파라미터 처리를 위한 추가부분
+	: 리스트에서 검색 후 상세보기, 그리고 닷 ㅣ리스트보기를
+	눌렀을때 검색이 유지되도록 처리하기 위한 코드
+*/
+
+String queryStr = "";
+String searchColumn = request.getParameter("searchColumn");
+String searchWord = request.getParameter("searchWord");
+if(searchWord!=null){
+	queryStr += "searchColumn="+searchColumn+"&searchWord="+searchWord;
+}
+//2페이지에서 상세보기 했다면 리스트로 돌아갈때도 페이지가 유지되어야 한다.
+String nowPage = request.getParameter("nowPage");
+queryStr += "&nowPage="+nowPage;
+
+//파라미터로 전송된 게시물의 일련번호를 받음
+String num = request.getParameter("num");
+BbsDAO dao = new BbsDAO(application);
+
+
+
+//조회수를 업데이트하여 visitcount컬럽을 1증가시킴
+dao.updateVisitCount(num);
+
+//일련번호에 해당하는 게시물을 DTO객체로 반환함
+BbsDTO dto = dao.selectView(num);
+
+dao.close();
+%>
 <!DOCTYPE html>
 <html lang="en">
 <jsp:include page="../common/boardHead.jsp"/>
@@ -115,7 +133,8 @@
 				</script>
 				</div>
 				<div class="col-6 text-right pr-5">					
-					<button type="button" class="btn btn-warning" onclick="location.href='BoardList.jsp';">리스트보기</button>
+					<button type="button" class="btn btn-warning" 
+						onclick="location.href='BoardList.jsp?<%=queryStr%>';">리스트보기</button>
 				</div>	
 			</div>
 		<!-- ### 게시판의 body 부분 end ### -->		
