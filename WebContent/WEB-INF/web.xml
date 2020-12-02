@@ -38,8 +38,24 @@
   </session-config>
   
   
-  
-  
+  <!-- tld파일의 위치(경로) 등록 -->
+  <!-- 
+	EL에서 Java클래스의 메소드 호출 절차 및 방법
+	1.클래스와 메소드를 정의한다. 단 메소드 정의시 반드시
+		public static 으로 선언해야한다.
+	2.TDL파일을 생성한다. Tag Library Descriptor의 약자로
+		WEB-INF폴더 하위에 생성한다. 웹어플리케이션 실행시
+		컨테이너가 해당 파일을 찾아 사용하게된다. 우리는 tlds폴더를
+		생성한후 파일을 생성하고, fn.tld파일을 참조하여 작성하였다.
+	3.생성한 TLD파일의 겨오를 등록한다. 등록시<jsp-config>
+		엘리먼트를 통해 기술한다.
+	-->
+  <jsp-config>
+  	<taglib>
+  		<taglib-uri>myTagLibTld</taglib-uri>
+  		<taglib-location>/WEB-INF/tlds/MyTagLib.tld</taglib-location>
+  	</taglib>
+  </jsp-config>
   
   
   

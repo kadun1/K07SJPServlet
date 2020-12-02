@@ -65,11 +65,24 @@
 	<c:set var="elVar" value="<%=varScriptLet %>" />
 	\${elVar } : ${elVar }
 	
+	<!-- 
+		Tomcat8.0부터는 EL에서 변수할당이 가능해졌다. 하지만
+		개발시에는 실제 서비스할 웹서버의 버전을 확인한후 사용여부를
+		결정해야한다. EL은 전통적으로 값을 표현(출력)하는 용도로
+		사용되어졌으므로 표현용으로만 사용하는것이 좋다
+	 -->
 	<h3>EL변수에 값 할당</h3>
 	<c:set var="fnum" value="9" />
 	<c:set var="snum" value="5" />
-	\${fnum=99 } : ${fnum=99 }
+	\${fnum=99 } : ${fnum=99 } <!-- 99로 재할당되어 99가 출력됨 -->
 	
+	
+	<!-- 
+		EL에서는 정수와 정수를 연산하더라도 실수의 결과가
+		나올수있다. 즉 자동형변환되어 출력된다.
+		나눗셈을 위한 / 연산자대신 div,
+		나머지를 구하는 %대신 mod를 사용할 수 있다.
+	 -->
 	<h3>EL의 산술연산자</h3>
 	<ul>
 		<li>\${fnum+snum } : ${fnum+snum }</li>
@@ -79,20 +92,53 @@
 		<li>\${fnum % snum } : \${fnum % snum }</li>
 		<li>\${fnum mod snum } : ${fnum mod snum }</li>
 		
+		<!-- 
+			EL에서는 + 연산자는 덧셈의 용도로만 사용된다.
+			문자열을 연결하기 위한 용도로는 사용할수 없다.
+			아래 문장중 "100"은 자동으로 숫자로 변경된후 연산된다.
+			나머지는 NumberFormatException이 발생된다.
+		 -->
 		<li>\${"100"+100 } : ${"100"+100 }</li>
 		<li>\${"Hello~"+"EL~" } : \${"Hello!"+"EL~" }</li>
 		<li>\${"일"+2 } : \${"일"+2 }</li>
 	</ul>
+	
+	<!-- 
+		EL에서는 비교연산자를 이용한 비교시 변수의 값을 모두 문자열로
+		인식하여 String클래스의 compareTo()와 같은 방식으로
+		비교한다. 즉, 첫번째 문자부터 하나씩 비교해나간다.
+		단, 실제 숫자의 비교시에는 일반적인 숫자비교가 이루어진다.
+	 -->
 	<h3>EL의 비교연산자</h3>
 	<c:set var="fnum" value="100" />
 	<c:set var="snum" value="90" />
 	<ul>
+		<!-- 
+			fnum과 snum은 영역에 저장된 데이터이므로 Object형으로
+			저장된다. 따라서 비교시 객체상태에서 비교가 이루어지게된다.
+		 -->
 		<li>\${fnum > snum } : ${fnum > snum }</li>
 		<li>\${100 > 90 } : ${100 > 90 }</li>
 		
+		<!-- 
+			Java에서는 문자열을 비교할때 equals()로 비교하지만
+			EL에서는 ==의 형태로 비교한다.
+		 -->
 		<li>\${"JAVA"=='JAVA' } : ${"JAVA"=='JAVA' }</li>
 		<li>\${"Java"=='JAVA' } : ${"Java"=='JAVA' }</li>
 	</ul>
+	
+	
+	<!--
+		> : gt(Greater Then)
+		>= : ge(Greater then Equal)
+		< : lt(Less Then)
+		<= : le(Less then Equal)
+		== : eq(EQual)
+		!= : ne(Not Equal)
+		&& : And
+		|| : Or
+	-->
 	
 	<h3>EL의 논리연산자</h3>
 	<ul>
@@ -106,6 +152,13 @@
 	\${10 gt 9 ? "참이닷" : "거짓이닷" }
 		: ${10 gt 9 ? "참이닷" : "거짓이닷" }
 		
+		
+	<!-- 
+	null이거나 ""(빈문자열)일때
+		혹은 배열의 경우 길이가 0일때
+		혹은 컬렉션인 경우 size가 0일때
+	true를 반환하는 연산자
+	 -->	
 	<h3>EL의 empty 연산자 : null일때  true를 반환하는 연산자</h3>
 	<%
 		String nullStr = null;
