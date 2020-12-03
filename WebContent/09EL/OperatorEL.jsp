@@ -27,7 +27,7 @@
 	
 	\${null+10 } : ${null+10 }<br/> <!-- 결과 : 10 -->
 	<!-- 
-		최초 실행시에는 파라미터가 엇으므로 0으로 간주되어 계산된다.
+		최초 실행시에는 파라미터가 없으므로 0으로 간주되어 계산된다.
 		만약
 			해당페이지?myNumber=20    => 결과 30출력
 			해당페이지?myNumber=	   => 0으로 간주되어 10출력
@@ -174,7 +174,7 @@
 	<ul>
 		<li>\${empty elnullStr } : ${empty elnullStr }</li>
 		<li>\${not empty elemptyStr } : ${not empty elemptyStr }</li>
-		<li>{empty ellengthZero ? "배열크기가0임" : "배열크기가0이아님" }</li>
+		<li>${empty ellengthZero ? "배열크기가0임" : "배열크기가0이아님" }</li>
 		<li>${not empty elsizeZero ? "컬렉션에 저장된 객체있음" : "컬렉션에 저장된 객체없음" }</li>
 	</ul>
 	

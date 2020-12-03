@@ -30,10 +30,17 @@
 		    단 기본자료형인 경우에는 자료형만 기술하면된다. -->
 	    <function-signature>boolean isNumber(java.lang.String)</function-signature>
 	</function>
+	
 	<function>
 	    <name>getGender</name>
 	    <function-class>eltag.MyTagLib</function-class>
 	    <function-signature>java.lang.String getGender(java.lang.String)</function-signature>
+	</function>
+	
+	<function>
+	    <name>memberLogin</name>
+	    <function-class>eltag.MyTagLib</function-class>
+	    <function-signature>boolean memberLogin(java.lang.String, java.lang.String, java.lang.String, java.lang.String)</function-signature>
 	</function>
   
 </taglib>
