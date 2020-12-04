@@ -198,15 +198,15 @@ dao.close();
 				%>
 					<!-- 리스트반복 -->
 					<tr>
-						<td><%=vNum %></td>
+						<td align="center"><%=vNum %></td>
 						<td>
 							<a href="BoardView.jsp?num=<%=dto.getNum()%>
 							&nowPage=<%=nowPage%>&<%=queryStr%>"><%=dto.getTitle() %>
 							</a>
 						</td>
-						<td><%=dto.getName() %><br>(<%=dto.getId() %>)</td>
-						<td><%=dto.getPostdate() %></td>
-						<td><%=dto.getVisitcount() %></td>
+						<td align="center"><%=dto.getName() %><br>(<%=dto.getId() %>)</td>
+						<td align="center"><%=dto.getPostdate() %></td>
+						<td align="center"><%=dto.getVisitcount() %></td>
 					</tr>
 					<!-- 리스트반복 -->
 				<%

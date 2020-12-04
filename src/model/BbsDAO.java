@@ -388,7 +388,7 @@ public class BbsDAO {
 		List<BbsDTO> bbs = new Vector<BbsDTO>();
 		
 		//기본 쿼리문
-		String query = "SELECT * FROM board ";
+		String query = "SELECT * FROM board "; 
 		//검색어가 있을경우 조건절 동적 추가
 		if(map.get("Word")!=null){
 			query += " WHERE "+ map.get("Column") + " "

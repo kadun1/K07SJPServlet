@@ -50,6 +50,7 @@ public class PagingUtil {
 			
 			//마지막 페이지로 바로가기
 			pagingStr += "<li class='page-item'> <a href='"+pageName+"nowPage="+totalPage+ "'class='page-link'><i class='fas fa-angle-double-right'></i></a></li>";
+			
 		}
 		
 		return pagingStr;
@@ -144,7 +145,6 @@ public class PagingUtil {
 			pagingStr += "&nbsp;";
 			pagingStr += "<a href='"+pageName+"nowPage="+totalPage+"'>[마지막페이지로]</a>";
 		}
-
 		return pagingStr;
 	}
 
