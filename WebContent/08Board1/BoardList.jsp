@@ -15,7 +15,10 @@ String drv = application.getInitParameter("JDBCDriver");
 String url = application.getInitParameter("ConnectionURL");
 
 //DAO객체생성 및 DB커넥션
-BbsDAO dao = new BbsDAO(drv, url);
+//BbsDAO dao = new BbsDAO(drv, url);
+
+//커넥션풀(DBCP)을 통한 DAO객체생성 및 DB연결
+BbsDAO dao = new BbsDAO();
 
 /*
 파라미터를 저장할 용도로 생성한 Map컬렉션. 여러개의 파라미터를
