@@ -9,7 +9,7 @@
 		<a class="nav-link active" id="v-pills-home-tab"
 			 href="../08Board1/BoardList.jsp" role="tab" aria-controls="v-pills-home" aria-selected="true">자유게시판</a>
 		<a class="nav-link" id="v-pills-profile-tab"
-			 href="javascript:alert('준비중임');" role="tab" aria-controls="v-pills-profile" aria-selected="false">자료실</a>
+			 href="../DataRoom/DataList" role="tab" aria-controls="v-pills-profile" aria-selected="false">자료실</a>
 		<a class="nav-link" id="v-pills-messages-tab"
 			 href="javascript:alert('준비중임');" role="tab" aria-controls="v-pills-messages" aria-selected="false">방명록</a>				
 		<li class="nav-item dropdown">

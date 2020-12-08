@@ -101,7 +101,36 @@
   	<url-pattern>/Servlet/Calculate.kosmo</url-pattern>
   </servlet-mapping>
  
+ <!-- 간단한 MVC패턴 만들어보기 -->
+ <servlet>
+ 	<servlet-name>SimpleMVC</servlet-name>
+ 	<servlet-class>servlet.SimpleMVC</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>SimpleMVC</servlet-name>
+ 	<url-pattern>/13Servlet/SimpleMVC</url-pattern>	
+ </servlet-mapping>
  
+ <!-- Model2방식의 서블릿 게시판 제작(자료실) -->
+ <!-- 자료실 리스트 매핑 -->
+ <servlet>
+ 	<servlet-name>DataRoomList</servlet-name>
+ 	<servlet-class>controller.ListCtrl</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>DataRoomList</servlet-name>
+ 	<url-pattern>/DataRoom/DataList</url-pattern>	
+ </servlet-mapping>
+ 
+ <!-- 자료실 글쓰기 매핑 -->
+ <servlet>
+ 	<servlet-name>DataRoomWrite</servlet-name>
+ 	<servlet-class>controller.WriteCtrl</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>DataRoomWrite</servlet-name>
+ 	<url-pattern>/DataRoom/DataWrite</url-pattern>	
+ </servlet-mapping>
  
  
   <welcome-file-list>
