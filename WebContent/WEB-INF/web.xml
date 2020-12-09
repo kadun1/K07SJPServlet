@@ -132,6 +132,50 @@
  	<url-pattern>/DataRoom/DataWrite</url-pattern>	
  </servlet-mapping>
  
+ <!-- 상세보기 -->
+  <servlet>
+ 	<servlet-name>DataRoomView</servlet-name>
+ 	<servlet-class>controller.ViewCtrl</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>DataRoomView</servlet-name>
+ 	<url-pattern>/DataRoom/DataView</url-pattern>	
+ </servlet-mapping>
+ 
+ <!-- 패스워드 검증 -->
+ <servlet>
+ 	<servlet-name>DataRoomPassword</servlet-name>
+ 	<servlet-class>controller.PasswordCtrl</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>DataRoomPassword</servlet-name>
+ 	<url-pattern>/DataRoom/DataPassword</url-pattern>	
+ </servlet-mapping>
+ 
+ <!-- 게시물 삭제처리 -->
+  <servlet>
+ 	<servlet-name>DataRoomDelete</servlet-name>
+ 	<servlet-class>controller.DeleteCtrl</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>DataRoomDelete</servlet-name>
+ 	<url-pattern>/DataRoom/DataDelete</url-pattern>	
+ </servlet-mapping>
+ 
+ <!-- 수정처리 -->
+   <servlet>
+ 	<servlet-name>DataRoomEdit</servlet-name>
+ 	<servlet-class>controller.EditCtrl</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>DataRoomEdit</servlet-name>
+ 	<url-pattern>/DataRoom/DataEdit</url-pattern>	
+ </servlet-mapping>
+ 
+ 
+ 
+ 
+ 
  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

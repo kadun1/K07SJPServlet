@@ -43,7 +43,7 @@
 	
 	
 	<h3>DB응용하기</h3>
-	<c:url value="/10JSTL/inc?ImportPage.jsp" var="makeUrl">
+	<c:url value="/10JSTL/inc/ImportPage.jsp" var="makeUrl">
 	<%
 	String id = request.getParameter("id");
 	String paramId ="", paramPass="", paramName="";

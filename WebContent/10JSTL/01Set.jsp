@@ -148,7 +148,7 @@
 	<c:set var="list" value="<%=list %>" scope="request" />
 	
 	<!-- 
-		0번 인덱스에 저장도니 defaultMember 객체를 ㅣ정하여 정보를 출력한다.
+		0번 인덱스에 저장된 defaultMember 객체를 지정하여 정보를 출력한다.
 	 -->
 	<h4>target및 property속성으로 미 설정후 출력</h4>
 	
