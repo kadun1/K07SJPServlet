@@ -80,7 +80,7 @@
 								${map.totalCount - (((map.nowPage-1) * map.pageSize)+loop.index) }
 							</td>
 							<td>
-								<a href="../DataRoom/DataView?idx=${row.idx }&nowPage=${param.nowPage}">
+								<a href="../DataRoom/DataView?idx=${row.idx }&nowPage=${map.nowPage }&searchColumn=${param.searchColumn }&searchWord=${param.searchWord }">
 									${row.title }
 								</a>
 							</td>
@@ -106,7 +106,7 @@
 					<!-- 각종 버튼 부분 -->
 					<!-- <button type="button" class="btn">Basic</button> -->
 					<button type="button" class="btn btn-primary"
-						onclick="location.href='../DataRoom/DataWrite';">글쓰기</button>
+						onclick="location.href='../DataRoom/DataWrite?nowPage=${map.nowPage }&searchColumn=${param.searchColumn }&searchWord=${param.searchWord }';">글쓰기</button>
 					<!-- <button type="button" class="btn btn-secondary">수정하기</button>
 					<button type="button" class="btn btn-success">삭제하기</button>
 					<button type="button" class="btn btn-info">답글쓰기</button>
@@ -119,22 +119,22 @@
 			</div>
 			<div class="row mt-3">
 				<div class="col">
-					<!-- 페이지번호 부분 -->
-					<ul class="pagination justify-content-center">
-					<!-- 매개변수설명
-					totalRecordCount : 게시물의 전체갯수
-					pageSize : 한페이지에 출력할 게시물의 갯수
-					blockPage : 한 블록에 표시할 페이지번호의 갯수
-					nowPage : 현재페이지 번호
-					"BoardList.jsp? : 해당 게시판의 실행 파일명
-					 -->
-					</ul>
+					<!-- 페이지번호 기본이미지 -->
+					<!-- 페이지번호 부트스트랩4 적용 -->
+					<div style="text-align:center; padding:0 0 10px 0;">
+						<ul class="pagination justify-content-center">
+							${map.pagingImg }
+						<!-- 매개변수설명
+						totalRecordCount : 게시물의 전체갯수
+						pageSize : 한페이지에 출력할 게시물의 갯수
+						blockPage : 한 블록에 표시할 페이지번호의 갯수
+						nowPage : 현재페이지 번호
+						"BoardList.jsp? : 해당 게시판의 실행 파일명
+						 -->
+						</ul>
+					</div>
 				</div>
 			</div>
-		<!-- ### 게시판의 body 부분 end ### -->	
-			<div class = "text-center">
-				<!-- 텍스트 기반의 페이지번호 출력하기 -->
-			</div>	
 		</div>
 	</div>
 	<div class="row border border-dark border-bottom-0 border-right-0 border-left-0"></div>

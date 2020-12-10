@@ -64,5 +64,10 @@
 		</h4>
 	</form>
 	
+	<h2>이미지 경로 확인하기</h2>
+	<img src="../images/3.jpg" alt="" />
+	
+	
+	
 </body>
 </html>

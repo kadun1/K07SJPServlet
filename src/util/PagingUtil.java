@@ -2,7 +2,7 @@ package util;
 
 public class PagingUtil {
 
-	public static String paginBS4(int totalRecordCount, int pageSize,
+	public static String pagingBS4(int totalRecordCount, int pageSize,
 			int blockPage, int nowPage, String pageName) {
 		
 		String pagingStr = "";

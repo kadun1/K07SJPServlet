@@ -44,5 +44,24 @@
 	<span style="color:red; font-size:2em;">
 		${result }
 	</span>
+	
+	
+	<!-- 
+		요청명을 결정할때는 View의 경로와 동일한 depth(깊이)로
+		설정하는것이 좋다. 이미지의 경로, CSS, JS파일을 상대경로로
+		링크했을때 경로가 깨지는 경우가 발생할수 있기 때문이다.
+		아래 이미지의 경우 요청명이
+			"/13Servlet/SimpleMVC"일때는 ../부분이 표시되고
+			"/SimpleMVC"일때는 ./부분의 이미지가 표시될것이다.
+	 -->
+	<h3>이미지와 요청명</h3>
+	<h4>../으로 이미지 표현</h4>
+	<img src="../images/3.jpg" alt="구름하트" />
+	<h4>./으로 이미지 표현</h4>
+	<img src="./images/3.jpg" alt="구름하트" />	
+	<h4>절대경로로 이미지 표현</h4>
+	<img src="<%=request.getContextPath() %>/images/3.jpg" alt="구름하트" />
+	<!-- 절대경로인 경우 요청명의 영향을 받지 않는다. -->
+	
 </body>
 </html>

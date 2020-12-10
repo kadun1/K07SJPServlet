@@ -246,7 +246,7 @@ dao.close();
 					nowPage : 현재페이지 번호
 					"BoardList.jsp? : 해당 게시판의 실행 파일명
 					 -->
-						<%=PagingUtil.paginBS4(totalRecordCount, 
+						<%=PagingUtil.pagingBS4(totalRecordCount, 
 								pageSize, 
 								blockPage, 
 								nowPage, 

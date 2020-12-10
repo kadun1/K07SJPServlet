@@ -89,12 +89,12 @@
 					style="vertical-align:middle;">내용</th>
 				<td>
 					<textarea rows="10" 
-						class="form-control" name="content">내용삽입</textarea>
+						class="form-control" name="content">${dto.content }</textarea>
 				</td>
 			</tr>
 			<tr>
 				<th class="text-center"
-					style="vertical-align:middle;">${dto.content }</th>
+					style="vertical-align:middle;">첨부파일</th>
 				<td>
 					파일명 : ${dto.attachedfile }<br />
 					<input type="file" class="form-control" name="attachedfile"/>
