@@ -93,7 +93,7 @@
 			//내용에 /가 있다면 귓속말이므로...
 			if(content.match("/")){
 				//해당 아이디(닉네임)에게만 디스플레이 한다.
-				if(content.match(("/"+chat_id))){
+				if(content.match("/"+chat_id)){
 					var temp = content.replace(("/"+chat_id),"[귓속말]:");
 					msg = makeBalloon(sender, temp);
 					messageWindow.innerHTML += msg;
