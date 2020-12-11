@@ -101,7 +101,7 @@
 		<li>매개변수로 전달 : <%=getRealPath(application) %></li>
 		<%
 		this.app2 = application;
-		%>
+		%>		
 		<li>멤버변수 : <%=getRealPathString() %></li>			
 	</ul>
 	

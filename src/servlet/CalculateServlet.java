@@ -28,13 +28,14 @@ public class CalculateServlet extends HttpServlet{
 		case "*":
 			returnValue = fnum * snum; break;
 		case "/":
-			returnValue = fnum / snum; break;
+			returnValue = fnum / snum; break;		
 		default:
 			returnValue = 0;
 		}
 		
-		req.setAttribute("calResult", "연산결과="+returnValue);
-		req.getRequestDispatcher("/13Servlet/HelloServlet.jsp").forward(req, resp);
-		
+		req.setAttribute("calResult", "연산결과="+ returnValue);
+		req.getRequestDispatcher("/13Servlet/HelloServlet.jsp")
+			.forward(req, resp);
+
 	}
 }

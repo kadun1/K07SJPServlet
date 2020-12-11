@@ -1,18 +1,18 @@
-<%@page import="java.util.HashMap"%>
-<%@page import="java.util.Map"%>
 <%@page import="smtp.SMTPAuth"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <%
 request.setCharacterEncoding("UTF-8");
-//메일 발송을 위한 객체생성
+//메일발송을 위한 객체생성
 SMTPAuth smtp = new SMTPAuth();
 
 String mailContents = ""
 	+"<table border=1>"
 	+"<tr>"
-	+"	<td>제목	</td>"
+	+"	<td>제목</td>"
 	+"	<td>"+request.getParameter("subject")+"</td>"
 	+"</tr>"
 	+"<tr>"
@@ -26,7 +26,7 @@ String mailContents = ""
 	+"</table>";
 
 //메일을 보내기위한 여러가지 폼값을 Map컬렉션에 저장
-Map<String, String> emailContent = new HashMap<String, String>();
+Map<String,String> emailContent = new HashMap<String,String>();
 emailContent.put("from", request.getParameter("from"));
 emailContent.put("to", request.getParameter("to"));
 emailContent.put("subject", request.getParameter("subject"));
@@ -45,16 +45,12 @@ if(request.getParameter("content")!=null){
 	
 	return;
 }
-%>
+%>     
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>EmailTextSending.jsp</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<title>EmailTextSending</title>
 </head>
 <body>
 <h2>이메일 발송하기</h2>
@@ -63,13 +59,13 @@ if(request.getParameter("content")!=null){
 	<tr>	
 		<td> 
 			보내는사람 : 
-			<input type="text" name="from" value="kadun@naver.com" />
+			<input type="text" name="from" value="nakjasabal@naver.com" />
 		</td>
 	</tr>
 	<tr>	
 		<td>
 			받는사람 : 
-			<input type="text" name="to" value="kadunjj@gmail.com" />
+			<input type="text" name="to" value="nakjasabal@gmail.com" />
 		</td>
 	</tr>
 	<tr>	
@@ -91,5 +87,4 @@ if(request.getParameter("content")!=null){
 </table>
 </form>
 </body>
-
 </html>

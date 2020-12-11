@@ -20,7 +20,7 @@
 				<a class="nav-link text-dark" href="../DataRoom/DataList">자료실</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link text-dark" href="javascript:alert('준비중')">방명록</a>
+				<a class="nav-link text-dark" href="javascript:alert('준비중');">방명록</a>
 			</li>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle text-dark" href="#" id="navbardrop" data-toggle="dropdown">
@@ -42,30 +42,34 @@
 				</div>
 			</div>
 		</form>
-		<ul class="navbar-nav ml-auto" >
-		<%
-		if(session.getAttribute("USER_ID")==null){
-		%>
-		<!-- 로그인이 안된 상태(리스트에 첫 진입시...) -->
-			<li class="nav-item">
-				<a class="nav-link text-dark" href="javascript:alert('준비중')"><i class='fas fa-edit' style='font-size:20px'></i>회원가입</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link text-dark" href="../06Session/Login.jsp"><i class='fas fa-sign-in-alt' style='font-size:20px'></i>로그인</a>
-			</li>
-		<%
-		}else{
-		%>
-		<!-- 로그인이 된 상태(글쓰기를 위해 회원인증 후...) -->
-			<li class="nav-item">
-				<a class="nav-link text-dark" href="#" onclick="alert('준비중')"><i class='fa fa-cogs' style='font-size:20px'></i>회원정보수정</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link text-dark" href="../06Session/Logout.jsp"><i class='fas fa-sign-out-alt' style='font-size:20px'></i>로그아웃</a>
-			</li>
-		<%
-		}
-		%>
-		</ul>
+<ul class="navbar-nav ml-auto" >
+<%
+if(session.getAttribute("USER_ID")==null){
+%>
+	<!-- 로그인이 안된 상태(리스트에 첫 진입시...) -->
+	<li class="nav-item">
+		<a class="nav-link text-dark" href="javascript:alert('준비중');"><i 
+			class='fas fa-edit' style='font-size:20px'></i>회원가입</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link text-dark" href="../06Session/Login.jsp"><i 
+			class='fas fa-sign-in-alt' style='font-size:20px'></i>로그인</a>
+	</li>
+<%
+}else{ 
+%>
+	<!-- 로그인이 된 상태(글쓰기를 위해 회원인증 후...) -->
+	<li class="nav-item">
+		<a class="nav-link text-dark" href="#" onclick="alert('준비중')"><i 
+			class='fa fa-cogs' style='font-size:20px'></i>회원정보수정</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link text-dark" href="../06Session/Logout.jsp"><i 
+			class='fas fa-sign-out-alt' style='font-size:20px'></i>로그아웃</a>
+	</li>
+<%
+}
+%>	
+</ul>
 	</nav>
 </div>

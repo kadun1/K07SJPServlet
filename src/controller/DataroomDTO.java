@@ -1,18 +1,19 @@
 package controller;
 
+import java.sql.Date;
+
 public class DataroomDTO {
-	//맴버변수
+    //멤버변수
 	private String idx;
-	private String name;
-	private String title;
-	private String content;
-	private java.sql.Date postdate;
-	private String attachedfile;
-	private int downcount;
-	private String pass;
-	private int visitcount;
-	
-	
+    private String name;
+    private String title;
+    private String content;
+    private java.sql.Date postdate;
+    private String attachedfile;
+    private int downcount;
+    private String pass;
+    private int visitcount;
+     
 	public String getIdx() {
 		return idx;
 	}
@@ -67,6 +68,27 @@ public class DataroomDTO {
 	public void setVisitcount(int visitcount) {
 		this.visitcount = visitcount;
 	}
+    //답변형게시판 추가를 위한 getter/setter
+	/*public int getBgroup() {
+		return bgroup;
+	}
+	public void setBgroup(int bgroup) {
+		this.bgroup = bgroup;
+	}
+	public int getBstep() {
+		return bstep;
+	}
+	public void setBstep(int bstep) {
+		this.bstep = bstep;
+	}
+	public int getBindent() {
+		return bindent;
+	}
+	public void setBindent(int bindent) {
+		this.bindent = bindent;
+	}*/
+    
+	
 	
 	
 }

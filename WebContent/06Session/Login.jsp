@@ -5,12 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Login.jsp</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+<!-- 공통링크  -->
 <%@ include file="../common/CommonLink.jsp" %>
 
 <h2>로그인 페이지</h2>
@@ -19,7 +17,6 @@
 	<%=request.getAttribute("ERROR_MSG")==null ?
 		"" : request.getAttribute("ERROR_MSG") %>
 </span>
-
 
 <%
 //로그인 되었는지 확인하기 위해 세션영역에서 속성을 가져온다.
@@ -68,16 +65,15 @@ if(session.getAttribute("USER_ID")==null){//로그인 전 상태..
 	</table>		
 	</form>
 <% }else{ //로그인 후 상태 %>
-	<!-- 로그인에 성공했을때 출력되는 화면 -->
 	<table border='1'>
 		<tr>
 			<td style="text-align:center;">
-			<!-- 
-			1단계 : 쿼리문에 count(*) 그룹함수를 사용하여 로그인 처리를
-				하므로 회원의 이름이 null로 출력된다.
-			2단계 : 쿼리를 통해 얻어온 회원정보를 MemberDTO객체에 저장후
-				반환받고, 세션영역에 각 정보들을 저장한다.
-			-->
+				<!--  
+				1단계 : 쿼리문에 count(*) 그룹함수를 사용하여 로그인 처리를
+					하므로 회원의 이름이 null로 출력된다. 
+				2단계 : 쿼리를 통해 얻어온 회원정보를 MemberDTO객체에 저장후
+					반환받고, 세션영역에 각 정보들을 저장한다. 
+				-->
 				<%=session.getAttribute("USER_NAME") %> 회원님, 
 					로그인 하셨습니다.
 				<br />
@@ -88,6 +84,5 @@ if(session.getAttribute("USER_ID")==null){//로그인 전 상태..
 		</tr>
 	</table>
 <% } %>
-
 </body>
 </html>

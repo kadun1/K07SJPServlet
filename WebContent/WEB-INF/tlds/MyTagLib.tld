@@ -1,46 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- 
+<!--  
 	EL에서 Java클래스의 메소드 호출 절차 및 방법
 	1.클래스와 메소드를 정의한다. 단 메소드 정의시 반드시
-		public static 으로 선언해야한다.
-	2.TDL파일을 생성한다. Tag Library Descriptor의 약자로
-		WEB-INF폴더 하위에 생성한다. 웹어플리케이션 실행시
+		public static으로 선언해야한다. 
+	2.TLD파일을 생성한다. Tag Library Descriptor의 약자로
+		WEB-INF폴더 하위에 생성한다. 웹어플리케이션 실행시 
 		컨테이너가 해당 파일을 찾아 사용하게된다. 우리는 tlds폴더를
 		생성한후 파일을 생성하고, fn.tld파일을 참조하여 작성하였다.
 -->
+
 <taglib xmlns="http://java.sun.com/xml/ns/j2ee"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd"
   version="2.0">
 	<!-- 해당 TLD파일에 대한 설명 -->
 	<description>My Tag Library</description>
-	<!-- 버전 -->
+	<!-- 버전 -->	
 	<tlib-version>1.1</tlib-version>
-	<!-- 접두어 : 설정후 EL에서 함수 호출시 사용할 접두어를 기술한다. -->
+	<!-- 접두어 : 설정후 EL에서 함수 호출시 사용할 접두어를 기술한다.  -->
 	<short-name>my</short-name>
-	<!-- 우리가 호출할  Java클래스의 메소드를 등록한다. -->
-	<function>
+  	<!-- 우리가 호출할 Java클래스의 메소드를 등록한다. -->
+	<function>   
 		<!-- EL에서 사용할 메소드명 -->
-	    <name>isNumber</name>
-	    <!-- 패키지를 포함한 클래스의 풀경로 -->
-	    <function-class>eltag.MyTagLib</function-class>
-	    <!-- 호출할 메소드의 원형을 기술한다. 리턴타입과 매개변수는
-		    해당 클래스의 패키지를 포함한 풀경로를 사용해야  한다.
-		    단 기본자료형인 경우에는 자료형만 기술하면된다. -->
-	    <function-signature>boolean isNumber(java.lang.String)</function-signature>
+		<name>isNumber</name>
+		<!-- 패키지를 포함한 클래스의 풀 경로 -->
+		<function-class>eltag.MyTagLib</function-class>
+		<!-- 호출할 메소드의 원형을 기술한다. 리턴타입과 매개변수는
+			해당 클래스의 패키지를 포함한 풀경로를 사용해야 한다. 
+			단 기본자료형인 경우에는 자료형만 기술하면 된다.  -->
+		<function-signature>boolean isNumber(java.lang.String)</function-signature>
 	</function>
 	
-	<function>
-	    <name>getGender</name>
-	    <function-class>eltag.MyTagLib</function-class>
-	    <function-signature>java.lang.String getGender(java.lang.String)</function-signature>
+	<function>   
+		<name>getGender</name>
+		<function-class>eltag.MyTagLib</function-class>
+		<function-signature>java.lang.String getGender(java.lang.String)</function-signature>
 	</function>
-	
-	<function>
-	    <name>memberLogin</name>
-	    <function-class>eltag.MyTagLib</function-class>
-	    <function-signature>boolean memberLogin(java.lang.String, java.lang.String, java.lang.String, java.lang.String)</function-signature>
+    
+  	<function>	    
+		<name>memberLogin</name>
+		<function-class>eltag.MyTagLib</function-class>
+		<function-signature>boolean memberLogin(java.lang.String, java.lang.String, java.lang.String, java.lang.String)</function-signature>	    
 	</function>
   
-</taglib>
+  
+</taglib>  

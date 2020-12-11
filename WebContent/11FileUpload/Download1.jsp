@@ -12,11 +12,12 @@
 request.setCharacterEncoding("UTF-8");
 
 //파일이 업로드된 디렉토리의 물리적경로 얻어오기
-String root = request.getSession().getServletContext().getRealPath("/");
+String root = request.getSession()
+	.getServletContext().getRealPath("/");
 String savePath = root + "Upload";
 
 //파일명지정(서버에 저장된 파일명, 다운로드할 원본 파일명)
-String filename = request.getParameter("fileName"); 
+String filename = request.getParameter("fileName");
 String orgfilename = request.getParameter("fileName"); 
 
 //입출력 스트림 및 파일객체 생성
@@ -54,10 +55,11 @@ try{
 		if(client.indexOf("MSIE") != -1){
 			//웹브라우저가 인터넷 익스플로러 일때 한글 파일명 처리
 			response.setHeader ("Content-Disposition", "attachment; filename="+new String(orgfilename.getBytes("KSC5601"),"ISO8859_1"));
-		}else{
+		}
+		else{
 			/*
 			익스플로러가 아닐때 한글파일명 처리
-			다운로드시 원본파일명으로 변경할때 이부분을 변경한다.
+			다운로드시 원본파일명으로 변경할때 이부분을 변경한다. 
 			*/
 			orgfilename = new String(orgfilename.getBytes("utf-8"),"iso-8859-1");
 			response.setHeader("Content-Disposition", "attachment; filename=\"" + orgfilename + "\"");
@@ -72,9 +74,9 @@ try{
 		int leng = 0;
 		
 		/*
-		input스트림으로 퍄일내용을 읽어와서 output스트림으로
+		input스트림으로 파일내용을 읽어와서 output스트림으로
 		웹브라우저에 출력한다. 이때 웹브라우저는 해당 파일의 MIME타입을
-		인식하지 못하므로 다운로드창을 통해 파일을 다운로드 시키게 된다.
+		인식하지 못하므로 다운로드창을 통해 파일을 다운로드 시키게된다. 
 		*/
 		while( (leng = in.read(b)) > 0 ){
 			os.write(b,0,leng);

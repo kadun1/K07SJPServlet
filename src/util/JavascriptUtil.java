@@ -10,6 +10,7 @@ public class JavascriptUtil {
 				+ "  alert('"+msg+"');  "
 				+ "  location.href='"+url+"';  "
 				+ "</script>";
+			
 		return str;
 	}
 	public static String jsAlertBack(String msg) {
@@ -34,7 +35,6 @@ public class JavascriptUtil {
 		}
 		catch(Exception e) {}
 	}
-
 	public static void jsAlertBack(String msg, JspWriter out) {
 		try {
 			String str = ""
@@ -47,4 +47,3 @@ public class JavascriptUtil {
 		catch(Exception e) {}
 	}
 }
-

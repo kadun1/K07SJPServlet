@@ -86,20 +86,19 @@ public class MemberDAO {
 		}
 		return isFlag;
 	}
-	
-	//로그인방법2 : 회원인증후 MemberDTO객체에서 회원정보를 저장한 후 JSP쪽으로
+		
+	//로그인방법2 : 회원인증후 MemberDTO객체에 회원정보를 저장한 후 JSP쪽으로
 	//			반환해준다.
-	public MemberDTO getMemberDTO(String uid,String upass) {
+	public MemberDTO getMemberDTO(String uid, String upass) {
 		
 		//회원정보 저장을 위해 DTO객체 생성
-		MemberDTO dto= new MemberDTO();
+		MemberDTO dto = new MemberDTO();
 		
 		//회원정보를 가져오기 위한 쿼리문 작성
 		String query = "SELECT id, pass, name FROM "
 				+ " member WHERE id=? AND pass=?";
-		
 		try {
-			//prepare 객체생성
+			//prepare객체생성
 			psmt = con.prepareStatement(query);
 			//인파라미터 설정
 			psmt.setString(1, uid);
@@ -121,24 +120,26 @@ public class MemberDAO {
 			System.out.println("getMemberDTO오류");
 			e.printStackTrace();
 		}
+		
 		return dto;
 	}
 	
 	//로그인방법3 : DTO객체 대신 Map컬렉션에 회원정보를 저장후 반환한다.
-	public Map<String, String> getMemberMap(String id, String pwd){
+	public Map<String, String> getMemberMap(String id,
+			String pwd){
 		
 		//회원정보를 저장할 Map컬렉션 생성
-		Map<String, String>maps = new HashMap<String, String>();
-		
+		Map<String, String> maps = new HashMap<String, String>();
+
 		String query = "SELECT id, pass, name FROM "
 				+ " member WHERE id=? AND pass=?";
-		
+		System.out.println(id+"<>"+pwd);
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, id);
 			psmt.setString(2, pwd);
 			rs = psmt.executeQuery();
-			
+
 			//회원정보가 있다면 put()을 통해 정보를 저장한다.
 			if(rs.next()) {
 				maps.put("id", rs.getString(1));
@@ -153,6 +154,7 @@ public class MemberDAO {
 			System.out.println("getMemberDTO오류");
 			e.printStackTrace();
 		}
+
 		return maps;
 	}
 	
@@ -160,16 +162,16 @@ public class MemberDAO {
 	public Map<String, String> getMemberMap(String id){
 		
 		//회원정보를 저장할 Map컬렉션 생성
-		Map<String, String>maps = new HashMap<String, String>();
-		
+		Map<String, String> maps = new HashMap<String, String>();
+
 		String query = "SELECT id, pass, name FROM "
 				+ " member WHERE id=?";
-		
+
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, id);
 			rs = psmt.executeQuery();
-			
+
 			//회원정보가 있다면 put()을 통해 정보를 저장한다.
 			if(rs.next()) {
 				maps.put("id", rs.getString(1));
@@ -184,9 +186,10 @@ public class MemberDAO {
 			System.out.println("getMemberDTO오류");
 			e.printStackTrace();
 		}
+
 		return maps;
 	}
-	
+		
 	public static void main(String[] args) {		
 		new MemberDAO();
 	}

@@ -1,32 +1,31 @@
+<%@page import="eltag.MyTagLib"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="my" uri="/WEB-INF/tlds/MyTagLib.tld" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="my" uri="myTagLibTld" %>  
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<title>04ChooseWhenOtherwise.jsp</title>
 </head>
 <body>
-	<!-- 
-	choose문
-		: if문과는 다르게 여러조건이 있는경우 사용한다.
-		형식]
-			choose
-				when test="조건1"
-				when test="조건2"
-				otherwise
-	 -->
+ 	<!--  
+ 	choose문
+ 		: if문과는 다르게 여러조건이 있는 경우 사용한다. 
+ 		형식]	
+ 			choose
+ 				when test="조건1"
+ 				when test='조건2'
+ 				otherwise
+ 	-->
 	<h2>choose~when~otherwise 태그</h2>
-	
+
 	<c:set var="numVar" value="101" />
 	<c:set var="strVar">자바</c:set>
-	
+
 	<h3>choose 태그로 홀짝 판단하기</h3>
 	<c:choose>
 		<c:when test="${numVar mod 2 eq 0 }">
@@ -36,29 +35,42 @@
 			${numVar } 는 홀수입니다.
 		</c:otherwise>
 	</c:choose>
-	
-	<h3>국영수 점수를 입력받아 평균점수로 학점출력</h3>>
-	<h4>점수를 입력하세요]</h4>
+
+	<h3>국영수 점수를 입력받아 평균점수로 학점출력</h3>
+	<h4>점수를 입력하세요</h4>
 	<form>
-		국어:<input type="text" name="kor" /><br/>
-		영어:<input type="text" name="eng" /><br/>
-		수학:<input type="text" name="math" /><br/>	
+		국어:<input type="text" name="kor" /> <br />
+		영어:<input type="text" name="eng" /> <br />
+		수학:<input type="text" name="math" /> <br />
 		<input type="submit" value="학점구하기" />
 	</form>
+	
 	<!-- 점수에 대한 입력값이 있을때만 화면에 결과 출력 -->
 	<c:if test="${not empty param.kor }">
-		<!-- 국영수 평균값을 구해서 변수에 할당 -->
-		<c:set var="avg" value="${(param.kor+param.eng+param.math)/3 }"/>
-		귀하의 평균점수는 ${avg }입니다.
+		<!-- 국영수의 평균값을 구해서 변수에 할당 -->
+		<c:set var="avg" value="${(param.kor+param.eng+param.math)/3}" 
+		/>
+		귀하의 평균점수는 ${avg } 입니다.
 		<br />
 		<c:choose>
-			<c:when test="${avg >= 90}">A학점</c:when>
-			<c:when test="${avg ge 80}">B학점</c:when>
-			<c:when test="${avg ge 70}">C학점</c:when>
-			<c:when test="${avg ge 60}">D학점</c:when>
+			<c:when test="${avg >= 90 }">A학점</c:when>
+			<c:when test="${avg ge 80 }">B학점</c:when>
+			<c:when test="${avg ge 70 }">C학점</c:when>
+			<c:when test="${avg ge 60 }">D학점</c:when>
 			<c:otherwise>F학점</c:otherwise>
 		</c:choose>
 	</c:if>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	<!-- 
 	시나리오] JDBC를 사용하여 회원인 경우 "X님 반갑습니다" 아닌경우 
@@ -75,18 +87,46 @@
 		<br />
 		<input type="submit" value="로그인" />
 	</form>
-	<c:if test="${not empty param.userid }">
+	
+	
+	
+	
+	
+	
+	
+	<c:if test="${not empty param.userid }"> 
 		<c:choose>
-			<c:when test="${my:memberLogin(param.userid
-						,param.userpw
-						,initParam.JDBCDriver
-						,initParam.ConnectionURL) }">
-				${param.userid } 회원님, 반갑습니다.			
+			<c:when test="${my:memberLogin(param.userid,param.userpw,initParam.JDBCDriver,initParam.ConnectionURL)}">
+				${param.userid } 회원님, 반갑습니다.
 			</c:when>
 			<c:otherwise>
 				넌 회원이 아니시군-_-;
 			</c:otherwise>
 		</c:choose>
-	</c:if>
+	</c:if>	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<%
+	
+	%>
+	<div>
+		${MyTagLib.memberLogin(param.userid,param.userpw,initParam.JDBCDriver,initParam.ConnectionURL) }
+	</div>
+	
+	
+	
+	<br /><br /><br /><br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br /><br /><br /><br />
+	
+	
+	
 </body>
 </html>

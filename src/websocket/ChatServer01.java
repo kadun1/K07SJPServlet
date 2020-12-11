@@ -11,28 +11,28 @@ import javax.websocket.server.ServerEndpoint;
  */
 @ServerEndpoint("/ChatServer01")
 public class ChatServer01 {
-
+	
 	//클라이언트가 접속했을때 처리
 	@OnOpen
 	public void onOpen() {
-		System.out.println("연결되었습니다...");
+		System.out.println("연결되었습니다 ...");
 	}
 	
 	//클라이언트와의 접속이 끊어졌을때 처리
 	@OnClose
 	public void onClose() {
-		System.out.println("종료되었습니다...");
+		System.out.println("종료되었습니다 ...");
 	}
 	
 	//클라이언트로부터 메세지가 도착했을때 처리
 	@OnMessage
 	public String onMessage(String message) {
 		/*
-			클라이언트로부터 메세지가 도착하면 로그를 출력하고
+			클라이언트로 부터 메세지가 도착하면 로그를 출력하고
 			다시 클라이언트로 Echo한다.
-		 */
+		*/
 		System.out.println("Client메세지:"+ message);
-		String echoMsg = "Server메세지:"+message;
+		String echoMsg = "Server메세지:"+ message;
 		return echoMsg;
 	}
 	
@@ -42,3 +42,5 @@ public class ChatServer01 {
 		e.printStackTrace();
 	}
 }
+
+

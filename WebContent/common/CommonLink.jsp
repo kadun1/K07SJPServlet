@@ -4,11 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<title>CommonLink.jsp</title>
 </head>
 <body>
 	<h2>공통링크</h2>
@@ -16,13 +12,13 @@
 		<tr>
 			<td>
 				<% if(session.getAttribute("USER_ID")==null){ %>
-					<a href="../06Session/Login.jsp">로그인</a>
+					<a href="../06Session/Login.jsp">로그인</a>			
 				<% }else{ %>
 					<a href="../06Session/Logout.jsp">로그아웃</a>
 				<% } %>
 				&nbsp;&nbsp;&nbsp;
 				<a href="../08Board1/BoardList.jsp">회원제게시판1[PageX]</a>
-				&nbsp;&nbsp;&nbsp;	
+				&nbsp;&nbsp;&nbsp;
 				<a href="../08Board2/BoardList.jsp">회원제게시판2[PageO]</a>
 				&nbsp;&nbsp;&nbsp;
 				<a href="../DataRoom/DataList">자료실(Model2)</a>
@@ -31,3 +27,5 @@
 	</table>
 </body>
 </html>
+
+
