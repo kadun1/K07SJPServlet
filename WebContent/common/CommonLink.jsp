@@ -22,6 +22,8 @@
 				<a href="../08Board2/BoardList.jsp">회원제게시판2[PageO]</a>
 				&nbsp;&nbsp;&nbsp;
 				<a href="../DataRoom/DataList">자료실(Model2)</a>
+				&nbsp;&nbsp;&nbsp;
+				<a href="../MyBoard/BoardList.jsp">연습게시판</a>
 			</td>
 		</tr>
 	</table>

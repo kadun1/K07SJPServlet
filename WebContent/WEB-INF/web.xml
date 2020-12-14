@@ -175,8 +175,15 @@
     <url-pattern>/DataRoom/Download</url-pattern>
   </servlet-mapping>
   
-  
-  
+    <!-- Model2방식의 서블릿 게시판 제작(자료실) 복습 -->
+  <servlet>
+	<servlet-name>DataroomList1</servlet-name>
+	<servlet-class>mycontroller.ListCtrl</servlet-class>    
+  </servlet> 
+  <servlet-mapping>
+  <servlet-name>DataroomList1</servlet-name>
+  <url-pattern>/Dataroom/DataList</url-pattern>
+  </servlet-mapping>
   
   
   <welcome-file-list>
