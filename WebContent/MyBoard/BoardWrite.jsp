@@ -3,14 +3,14 @@
 <%@ include file="../common/isLogin.jsp" %>
 <!DOCTYPE html>
 <html>
-<jsp:include page="boardHead.jsp" />
+<jsp:include page="../common/boardHead.jsp" />
 <body>
 <div class="container">
 	<div class="row">		
-		<jsp:include page="boardTop.jsp" />
+		<jsp:include page="../common/boardTop.jsp" />
 	</div>
 	<div class="row">		
-		<jsp:include page="boardLeft.jsp" />
+		<jsp:include page="../common/boardLeft.jsp" />
 		<div class="col-9 pt-3">
 		<!-- ### 게시판의 body 부분 start ### -->
 			<h3>게시판 - <small>Write(글쓰기)</small></h3>
@@ -71,7 +71,7 @@ function validate(frm){
 		</div>
 	</div>
 	<div class="row border border-dark border-bottom-0 border-right-0 border-left-0"></div>
-	<jsp:include page="boardBottom.jsp" />
+	<jsp:include page="../common/boardBottom.jsp" />
 </div>
 </body>
 </html>

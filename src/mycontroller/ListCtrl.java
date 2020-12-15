@@ -16,6 +16,7 @@ public class ListCtrl extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		DataroomDAO dao = new DataroomDAO();
 		
 		Map paramMap = new HashMap();
@@ -44,13 +45,17 @@ public class ListCtrl extends HttpServlet{
 		
 		int pageStart = (nowPage-1)*pageSize +1;
 		int pageEnd = nowPage * pageSize;
-				
+		
+		String pageSet = paging.pagingBS4(totalCount, pageSize, blockPage, nowPage,
+						"../Mydata/DataList?"+query);
+		
 		paramMap.put("start", pageStart);
 		paramMap.put("end", pageEnd);
 		paramMap.put("totalPage", totalPage);
 		paramMap.put("nowPage", nowPage);
 		paramMap.put("totalCount", totalCount);
 		paramMap.put("pageSize", pageSize);
+		paramMap.put("pageSet", pageSet);
 		
 		List<DataroomDTO> datalist = dao.selectListPage(paramMap);
 		
@@ -59,7 +64,12 @@ public class ListCtrl extends HttpServlet{
 		req.setAttribute("datalist", datalist);
 		req.setAttribute("paramMap", paramMap);
 		
-		req.getRequestDispatcher("/Mydataroom/DataList.jsp").forward(req, resp);
+		req.getRequestDispatcher("/MyDataroom/DataList.jsp").forward(req, resp);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doGet(req, resp);
 	}
 
 }

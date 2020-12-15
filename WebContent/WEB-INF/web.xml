@@ -181,10 +181,18 @@
 	<servlet-class>mycontroller.ListCtrl</servlet-class>    
   </servlet> 
   <servlet-mapping>
-  <servlet-name>DataroomList1</servlet-name>
-  <url-pattern>/Dataroom/DataList</url-pattern>
+	<servlet-name>DataroomList1</servlet-name>
+	<url-pattern>/Mydata/DataList</url-pattern>
   </servlet-mapping>
   
+   <servlet>
+	<servlet-name>DataroomView1</servlet-name>
+	<servlet-class>mycontroller.ViewCtrl</servlet-class>    
+  </servlet> 
+  <servlet-mapping>
+	<servlet-name>DataroomView1</servlet-name>
+	<url-pattern>/Mydata/DataView</url-pattern>
+  </servlet-mapping>
   
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

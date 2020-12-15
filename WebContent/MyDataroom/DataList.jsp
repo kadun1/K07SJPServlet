@@ -24,7 +24,7 @@
 		</select>
 		</div>
 		<div class="input-group">
-			<input type="text" name="searchWord"  class="form-control"/>
+			<input type="text" name="searchWord" class="form-control"/>
 		<div class="input-group-btn">
 			<button type="submit" class="btn btn-warning">
 			<i class='fa fa-search' style='font-size:20px'></i>
@@ -55,27 +55,38 @@
 				</tr>
 				</thead>
 				<tbody>
+<c:choose>
+	<c:when test="${empty datalist }">
  				<tr>
  					<td colspan="6" align="center" height="100">
  						등록된 게시물이 없습니다. 
  					</td>
  				</tr>
+ 	</c:when>
+ 	<c:otherwise>
+ 		<c:forEach items="${datalist }" var="row" varStatus="loop">
 				<tr>
 					<td class="text-center"><!-- 가상번호 -->
+					${paramMap.totalCount - (((paramMap.nowPage -1)*paramMap.pageSize)+loop.index) }
 					</td>
 					<td class="text-left">
+	<a href="../Mydata/DataView?idx=${row.idx }&nowPage=${paramMap.nowPage }&searchColumn=${param.searchColumn}&searchWord=${param.searchWord}">
+					${row.title }</a>
 					</td>
-					<td class="text-center"></td>
-					<td class="text-center"></td>
-					<td class="text-center"></td>
+					<td class="text-center">${row.name }</td>
+					<td class="text-center">${row.postdate }</td>
+					<td class="text-center">${row.visitcount }</td>
 					<td class="text-center">
-
-		<a href="">
-			<i class="material-icons" style="font-size:20px">attach_file</i>
-		</a>
-
+			<c:if test="${not empty row.attachedfile }">
+					<a href="">
+						<i class="material-icons" style="font-size:20px">attach_file</i>
+					</a>
+			</c:if>
 					</td>
 				</tr>
+		</c:forEach>
+	</c:otherwise>
+</c:choose>
 				</tbody>
 				</table>
 			</div>
@@ -90,6 +101,7 @@
 				<div class="col">
 					<!-- 페이지번호 부분 -->
 					<ul class='pagination justify-content-center'>
+						${paramMap.pageSet }
 					</ul>
 				</div>								
 			</div>

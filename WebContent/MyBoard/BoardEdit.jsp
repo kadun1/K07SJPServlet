@@ -23,10 +23,10 @@ dao.close();
 <body>
 <div class="container">
 	<div class="row">		
-		<jsp:include page="BoardTop.jsp" />
+		<jsp:include page="../common/boardTop.jsp" />
 	</div>
 	<div class="row">		
-		<jsp:include page="BoardLeft.jsp" />
+		<jsp:include page="../common/boardLeft.jsp" />
 		<div class="col-9 pt-3">
 		<!-- ### 게시판의 body 부분 start ### -->
 			<h3>게시판 - <small>Edit(수정하기)</small></h3>

@@ -51,12 +51,12 @@ dao.close();
 %>
 <!DOCTYPE html>
 <html lang="en">
-<jsp:include page="boardHead.jsp"/>
+<jsp:include page="../common/boardHead.jsp"/>
 <body>
 <div class="container">
-	<jsp:include page="boardTop.jsp"/>
+	<jsp:include page="../common/boardTop.jsp"/>
 	<div class="row">		
-	<jsp:include page="boardLeft.jsp"/>
+	<jsp:include page="../common/boardLeft.jsp"/>
 		<div class="col-9 pt-3">
 			<h3>게시판 - <small>이런저런 기능이 있는 게시판입니다.</small></h3>
 			
@@ -166,7 +166,7 @@ dao.close();
 			</div>		
 		</div>
 	</div>
-<jsp:include page="boardBottom.jsp"/>
+<jsp:include page="../common/boardBottom.jsp"/>
 </div>
 </body>
 </html>

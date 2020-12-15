@@ -20,7 +20,7 @@
 						<a class="nav-link text-dark" href="#">자유게시판</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-dark" href="../Dataroom/DataList">자료실</a>
+						<a class="nav-link text-dark" href="../Mydata/DataList">자료실</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link text-dark" href="#">방명록</a>

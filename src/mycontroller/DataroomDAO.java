@@ -60,7 +60,7 @@ public class DataroomDAO {
 		
 		if(map.get("Word")!=null) {
 			sql += " WHERE "+map.get("Column")
-				+ " LIKE '%"+map.get("Word")+ "'% ";
+				+ " LIKE '%"+map.get("Word")+ "%' ";
 		}
 		
 		sql += " ORDER BY idx DESC "
@@ -96,6 +96,54 @@ public class DataroomDAO {
 			e.printStackTrace();
 		}
 		return datalist;
+	}
+	
+	public DataroomDTO selectView(String idx) {
+		
+		DataroomDTO dto = null;
+		
+		String sql = "SELECT * FROM dataroom "
+				+ " WHERE idx=? ";
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, idx);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				dto = new DataroomDTO();
+				
+				dto.setIdx(rs.getString(1));
+				dto.setName(rs.getString(2));
+				dto.setTitle(rs.getString(3));
+				dto.setContent(rs.getString(4));
+				dto.setPostdate(rs.getDate(5));
+				dto.setAttachedfile(rs.getString(6));
+				dto.setDowncount(rs.getInt(7));
+				dto.setPass(rs.getString(8));
+				dto.setVisitcount(rs.getInt(9));
+			}
+		}
+		catch(Exception e) {
+			System.out.println("상세보기중 예외발생");
+			e.printStackTrace();
+		}
+		return dto;
+		
+	}
+	
+	public void updateVisitCount(String idx) {
+		
+		String sql = "UPDATE dataroom SET "
+				+ " visitcount=visitcount+1 "
+				+ " WHERE idx = ? ";
+		try {
+			
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, idx);
+			psmt.executeUpdate();
+		}
+		catch(Exception e) {}
 	}
 	
 	public void close() {

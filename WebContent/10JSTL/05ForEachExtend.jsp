@@ -52,6 +52,7 @@
 			<li>first : ${loopStatus.first }</li>
 			<li>last : ${loopStatus.last }</li>
 			<li>current : ${loopStatus.current }</li>
+			<li>count : ${loopStatus.count }</li>
 		</ul>
 	</c:forEach>
 	
