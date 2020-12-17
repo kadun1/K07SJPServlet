@@ -179,7 +179,7 @@
   <servlet>
 	<servlet-name>DataroomList1</servlet-name>
 	<servlet-class>mycontroller.ListCtrl</servlet-class>    
-  </servlet> 
+  </servlet>  
   <servlet-mapping>
 	<servlet-name>DataroomList1</servlet-name>
 	<url-pattern>/Mydata/DataList</url-pattern>

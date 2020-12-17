@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.GenericServlet;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -46,7 +45,7 @@ public class ListCtrl extends HttpServlet{
 		int pageStart = (nowPage-1)*pageSize +1;
 		int pageEnd = nowPage * pageSize;
 		
-		String pageSet = paging.pagingBS4(totalCount, pageSize, blockPage, nowPage,
+		String pageSet = Paging.pagingBS4(totalCount, pageSize, blockPage, nowPage,
 						"../Mydata/DataList?"+query);
 		
 		paramMap.put("start", pageStart);
@@ -64,7 +63,7 @@ public class ListCtrl extends HttpServlet{
 		req.setAttribute("datalist", datalist);
 		req.setAttribute("paramMap", paramMap);
 		
-		req.getRequestDispatcher("/MyDataroom/DataList.jsp").forward(req, resp);
+		req.getRequestDispatcher("../MyDataroom/DataList.jsp").forward(req, resp);
 	}
 	
 	@Override

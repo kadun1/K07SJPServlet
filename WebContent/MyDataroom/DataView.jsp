@@ -70,7 +70,7 @@
 				</div>
 				<div class="col-6 text-right pr-5">					
 <button type="button" class="btn btn-warning" 
-	onclick="">
+	onclick="location.href='./DataList?nowPage=${param.nowPage}&searchColumn=${param.searchColumn }&searchWord=${param.searchWord }'">
 	리스트보기</button>
 				</div>	
 			</div>

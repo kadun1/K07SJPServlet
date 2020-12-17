@@ -1,6 +1,6 @@
 package mycontroller;
 
-public class paging {
+public class Paging {
 
 	public static String pagingBS4(int totalCount, int pageSize, int blockPage, int nowPage, String pageName) {
 		String pagingStr = "";
