@@ -94,7 +94,7 @@
 				<div class="col text-right">
 					<!-- 각종 버튼 부분 -->
 					<button type="button" class="btn btn-primary" 
-						onclick="location.href=''">글쓰기</button>
+						onclick="location.href='../Mydata/DataWrite?nowPage=${paramMap.nowPage }&searchColumn=${param.searchColumn}&searchWord=${param.searchWord}';">글쓰기</button>
 				</div>
 			</div>
 			<div class="row mt-3">

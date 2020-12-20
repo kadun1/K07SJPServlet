@@ -194,6 +194,34 @@
 	<url-pattern>/Mydata/DataView</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+	<servlet-name>DataroomWrite1</servlet-name>
+	<servlet-class>mycontroller.WriteCtrl</servlet-class>    
+  </servlet> 
+  <servlet-mapping>
+	<servlet-name>DataroomWrite1</servlet-name>
+	<url-pattern>/Mydata/DataWrite</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+	<servlet-name>DataroomPass1</servlet-name>
+	<servlet-class>mycontroller.PasswordCtrl</servlet-class>    
+  </servlet> 
+  <servlet-mapping>
+	<servlet-name>DataroomPass1</servlet-name>
+	<url-pattern>/Mydata/DataPassword</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>DataroomEdit1</servlet-name>
+    <servlet-class>mycontroller.EditCtrl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DataroomEdit1</servlet-name>
+    <url-pattern>/Mydata/DataEdit</url-pattern>
+  </servlet-mapping>
+  
+  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>

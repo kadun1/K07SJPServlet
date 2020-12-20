@@ -154,4 +154,71 @@ public class DataroomDAO {
 		}
 		catch(Exception e) {}
 	}
+	
+	public int insert(DataroomDTO dto) {
+		int affected = 0;
+		try {
+			String sql = "INSERT INTO dataroom ( "
+					+ " idx,title,name,content,attachedfile,pass) "
+					+ " VALUES ("
+					+ " dataroom_seq.NEXTVAL, ?, ?, ?, ?, ?)"; 
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, dto.getTitle());
+			psmt.setString(2, dto.getName());
+			psmt.setString(3, dto.getContent());
+			psmt.setString(4, dto.getAttachedfile());
+			psmt.setString(5, dto.getPass());
+			
+			affected = psmt.executeUpdate();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return affected;
+	}
+	
+	public int update(DataroomDTO dto) {
+		int affected = 0;
+		try {
+			String sql = "UPDATE dataroom SET "
+					+ " title=?, name=?, content=?, "
+					+ " attachedfile=?, pass= ? "
+					+ " WHERE idx=? ";
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, dto.getTitle());
+			psmt.setString(2, dto.getName());
+			psmt.setString(3, dto.getContent());
+			psmt.setString(4, dto.getAttachedfile());
+			psmt.setString(5, dto.getPass());
+			psmt.setString(6, dto.getIdx());
+			
+			affected = psmt.executeUpdate();
+		}
+		catch(Exception e) {
+			System.out.println("업데이트중 예외발생");
+			e.printStackTrace();
+		}
+		return affected;
+	}
+	
+	public boolean isCorrectPassWord(String pass, String idx) {
+		boolean isCorrect = true;
+		
+		try {
+			String sql = " SELECT COUNT(*) FROM dataroom "
+					+ " WHERE pass=? AND idx=?";
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, pass);
+			psmt.setString(2, idx);
+			rs = psmt.executeQuery();
+			rs.next();
+			if(rs.getInt(1)==0) {
+			isCorrect = false;
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return isCorrect;
+	}
 }

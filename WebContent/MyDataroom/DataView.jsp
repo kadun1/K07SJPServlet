@@ -27,33 +27,34 @@
 						<th class="text-center table-active align-middle">작성자</th>
 						<td>${dto.name }</td>
 						<th class="text-center table-active align-middle">작성일</th>
-						<td></td>
+						<td>${dto.postdate }</td>
 					</tr>
 					<tr>
 						<th class="text-center table-active align-middle">다운로드수</th>
-						<td></td>
+						<td>${dto.downcount }</td>
 						<th class="text-center table-active align-middle">조회수</th>
-						<td></td>
+						<td>${dto.visitcount }</td>
 					</tr>
 					<tr>
 						<th class="text-center table-active align-middle">제목</th>
 						<td colspan="3">
-							
+							${dto.title }
 						</td>
 					</tr>
 					<tr>
 						<th class="text-center table-active align-middle">내용</th>
 						<td colspan="3" class="align-middle" style="height:200px;">
-							
+							${dto.content }
 						</td>
 					</tr>
 					<tr>
 						<th class="text-center table-active align-middle">첨부파일</th>
 						<td colspan="3">
-
+<c:if test="${not empty dto.attachedfile}">
 	<a href="">
 		[다운로드]
-	</a>		
+	</a>
+</c:if>		
 						</td>
 					</tr>
 				</tbody>
@@ -62,10 +63,10 @@
 			<div class="row mb-3">
 				<div class="col-6"> 
 <button type="button" class="btn btn-secondary"
-	onclick="location.href=''" />
+	onclick="location.href='../Mydata/DataPassword?mode=edit&idx=${param.idx}&nowPage=${param.nowPage }&searchColumn=${param.searchColumn }&searchWord=${param.searchWord }';" />
 	수정하기</button>
 <button type="button" class="btn btn-success"
-	onclick="">
+	onclick="location.href='../Mydata/DataPassword?mode=delete&idx=${param.idx}&nowPage=${param.nowPage }&searchColumn=${param.searchColumn }&searchWord=${param.searchWord }';" />
 	삭제하기</button> 
 				</div>
 				<div class="col-6 text-right pr-5">					
