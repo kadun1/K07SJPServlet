@@ -18,7 +18,6 @@
 	</c:otherwise>
 </c:choose>
 
-
 <script>
 <c:choose>
 	<c:when test="${PASS_CHECK }">

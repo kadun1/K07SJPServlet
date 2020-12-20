@@ -221,6 +221,14 @@
     <url-pattern>/Mydata/DataEdit</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+	<servlet-name>DataroomDelete1</servlet-name>
+	<servlet-class>mycontroller.DeleteCtrl</servlet-class>    
+  </servlet>  
+  <servlet-mapping>
+	<servlet-name>DataroomDelete1</servlet-name>
+	<url-pattern>/Mydata/DataDelete</url-pattern>
+  </servlet-mapping>
   
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

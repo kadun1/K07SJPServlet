@@ -221,4 +221,21 @@ public class DataroomDAO {
 		}
 		return isCorrect;
 	}
+	
+	public int delete(String idx) {
+		int affected = 0;
+		try {
+			String sql = "DELETE FROM dataroom "
+					+ " WHERE idx=? ";
+			
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, idx);
+			affected = psmt.executeUpdate();
+		}
+		catch(Exception e) {
+			System.out.println("삭제중 예외발생");
+			e.printStackTrace();
+		}
+		return affected;
+	}
 }
